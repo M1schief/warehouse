@@ -1,0 +1,7 @@
+export interface IShipmeng {
+  Date: string;
+  WarehouseID: string;
+  ShippingPO: string;
+  ShipmentID: string;
+  BoxesRcvd: number;
+}
