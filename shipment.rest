@@ -1,0 +1,11 @@
+PUT http://localhost:3000/api/upload
+Content-Type: application/json
+
+{  
+  "id" : "123456",
+  "Date": "Mar 11, 2022",
+  "WarehouseID": "a908cef7-4c67-40f3-88f7-08a03ba4104e",
+  "ShippingPO": "3f7b2654-052d-4a4e-905f-87f22a3877a9",
+  "ShipmentID": "4",
+  "BoxesRcvd": "10"
+}
