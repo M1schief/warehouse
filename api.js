@@ -1,10 +1,11 @@
 const express = require('express');
 const app = express();
-
+const validateApiKey = require('./auth');
 const { CosmosClient } = require("@azure/cosmos");
 
 const endpoint = "https://zhaohc.documents.azure.com:443/";
 const key = "JAfwCgGW2WYF5FjQOJ8JHCSrfzNE9rFoSMrC44TbKLnDaGZFYis9dIlh0oDsVQmHoQTyBoCx71jFACDb67hHnA==";
+//const key = "JAfwCgGW2WYF5FjQOJ8JHCSrfzNE9rFoSMrC44TbKLnDaGZFYis9dIlh0oDsVQmHoQTyBoCx71jFACDb67hHnA111111==";
 const databaseId = "warehouse";
 const containerId = "warehouse";
 const config = {
@@ -13,7 +14,7 @@ const config = {
 };
 const client = new CosmosClient(config);
 
-  app.get("/api/shipment/:id", async (req, res) => {
+  app.get("/api/shipment/:id", validateApiKey, async (req, res) => {
     const { id } = req.params;
     const container = client.database(databaseId).container(containerId);
     const query = `SELECT * FROM c WHERE c.ShipmentID = "${id}"`;
@@ -30,7 +31,7 @@ const client = new CosmosClient(config);
   app.use(bodyParser.json());
   
   //api to upload shipment from json
-  app.put('/api/upload', async (req, res) => {
+  app.put('/api/upload', validateApiKey, async (req, res) => {
     
     const container = client.database(databaseId).container(containerId);
     const newItem = req.body;
