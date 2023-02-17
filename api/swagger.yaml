@@ -1,0 +1,58 @@
+openapi: 3.0.0
+info:
+  title: Warehouse auto
+  version: 1.0.0
+servers:
+  - url: http://localhost:5000
+
+paths:
+  /api/shipment/{id}:
+    get:
+      summary: Get shipment by ID
+      tags:
+        - Shipment
+      parameters:
+        - name: id
+          in: path
+          required: true
+          description: The ID of the shipment to retrieve
+          schema:
+            type: string
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Shipment'
+  /api/upload:
+    put:
+      summary: Upload a new shipment
+      tags:
+        - Shipment
+      requestBody:
+        description: Shipment object to be uploaded
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Shipment'
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Shipment'
+components:
+  schemas:
+    Shipment:
+      type: object
+      properties:
+        ShipmentID:
+          type: string
+        ShippingPO:
+          type: string      
+        Date:
+          type: string
+        BoxesRcvd:
+          type: string
