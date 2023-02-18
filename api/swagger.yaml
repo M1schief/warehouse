@@ -3,7 +3,7 @@ info:
   title: Warehouse auto
   version: 1.0.0
 servers:
-  - url: http://localhost:5000
+  - url: https://autowhapi.azurewebsites.net
 
 paths:
   /api/shipment/{id}:

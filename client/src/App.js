@@ -1,5 +1,5 @@
 import './App.css';
-import React, { useEffect,useState } from 'react';
+import React, { useState } from 'react';
 function App() {
   
   const [shipmentId, setShipmentId] = useState('');
@@ -16,7 +16,7 @@ function App() {
   }
 
   const getShipment = async () => {
-    const res = await fetch(`http://localhost:5000/api/shipment/` + shipmentId, {
+    const res = await fetch(`https://autowhapi.azurewebsites.net/api/shipment/` + shipmentId, {
       method: "GET",
       headers:{
         'Content-Type':'application/json',

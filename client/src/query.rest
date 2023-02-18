@@ -1,0 +1,3 @@
+GET https://autowhapi.azurewebsites.net/api/shipment/6
+X-API-Key: CFQPDcvIc8Tp3nftFiToGpmSI1g8NQ1quzejFYnhrnVvqsZC5QLIHYgo4ZszM9gHP1LIXWNoYt20ACDbrCkJwA==
+Content-Type: application/json
